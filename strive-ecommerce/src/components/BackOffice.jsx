@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Col, Button, FormGroup, FormControl , Container} from 'react-bootstrap'
-
+import { Form,Row,Col, Button, FormGroup, FormControl , Container} from 'react-bootstrap'
+import {postProducts} from '../fetch/fetches'
 class BackOffice extends Component {
     state = { 
         products:{
@@ -12,7 +12,7 @@ class BackOffice extends Component {
             category:""
         }   
      }
-
+    
      updateProducts = (event) => {
         let products = this.state.products;
         let id = event.currentTarget.id;
@@ -24,6 +24,7 @@ class BackOffice extends Component {
     render() { 
         return (
             <Container>
+                <Row><Col className="col-6 offset-3">
             <Form onSubmit={this.postProduct}>
             <Form.Row>
                 <Form.Group as={Col}>
@@ -62,18 +63,6 @@ class BackOffice extends Component {
                 </Form.Group>
             </Form.Row>
             <Form.Row>
-                <FormGroup as={Col}>
-                    <Form.Label htmlFor="imageURL">ImageURL</Form.Label>
-                    <FormControl
-                       placeholder="Produt ImageURL" 
-                           id="imageURL"
-                           value={this.state.products.imageURL}
-                           onChange={(e) =>this.updateProducts(e)}
-                        type="text"
-                    />
-                </FormGroup>
-            </Form.Row>
-            <Form.Row>
                 <Form.Group as={Col}>
                     <Form.Label htmlFor="price">Price</Form.Label>
                     <Form.Control 
@@ -95,16 +84,11 @@ class BackOffice extends Component {
                     onChange={(e) =>this.updateProducts(e)}/>
                 </Form.Group>
             </Form.Row>
-            <Button  style={{ backgroundColor:"#0073B1" }} type="submit">
+            <Button  onClick={()=>postProducts(this.state.products)}style={{ backgroundColor:"#0073B1" }} type="submit">
             Post new product
         </Button>
-        <Button  className = "mx-2" style={{ backgroundColor:"green" }} type="submit">
-          Edit Product
-        </Button>
-        <Button  style={{ backgroundColor:"red" }} type="submit">
-           Delete Product
-        </Button>
         </Form> 
+        </Col></Row>
             </Container>
           );
     }
