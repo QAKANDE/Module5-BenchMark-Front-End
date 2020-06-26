@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
-import { Modal, Form, Col, Button, FormGroup, FormControl } from 'react-bootstrap'
+import React, { Component } from "react";
+import {
+  Modal,
+  Form,
+  Col,
+  Button,
+  FormGroup,
+  FormControl,
+} from "react-bootstrap";
 class ReviewModal extends Component {
-    state = {  }
-    render() { 
-        return (  
-            <Modal show={this.props.show} onHide= {()=> this.props.hideModal()}>
-            <Modal.Header className="d-flex justify-content-between">
-        <Modal.Title>Add Review</Modal.Title>
-        <div onClick= {()=> this.props.hideModal()}>
-                X
-            </div>
+  state = {};
+  render() {
+    return (
+        <Modal show={this.props.show} onHide={this.props.onHide}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.body>
-<div>form</div>
-        </Modal.body>
-        </Modal>
-        );
-    }
+        <Modal.Body>????</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={this.props.onHide}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
 }
- 
+
 export default ReviewModal;
