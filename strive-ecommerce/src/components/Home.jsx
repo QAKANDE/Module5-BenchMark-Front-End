@@ -32,7 +32,7 @@ class Home extends Component {
       the card's content.
     </Card.Text>
     <button type="button" onClick={() => {
-                            this.setState({ selected: this.state.selected })
+                            this.setState({ selected: true })
                         }}>Add Review </button>
     <ReviewModal show={this.state.selected}
                         hideModal={this.hideModal}

@@ -12,7 +12,7 @@ class ReviewModal extends Component {
             </div>
         </Modal.Header>
         <Modal.body>
-<div>Quadri</div>
+<div>form</div>
         </Modal.body>
         </Modal>
         );
